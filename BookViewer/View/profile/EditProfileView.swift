@@ -36,7 +36,7 @@ struct EditProfileView: View {
                         
                     EditProfileRowView(imageName: "person.fill", placeholder: "Name", isPassword: false, text: $name)
                     EditProfileRowView(imageName: "lock.fill", placeholder: "Password", isPassword: true, text: $password)
-                    EditProfileRowView(imageName: "person.text.rectangle.fill", placeholder: "Bio", isPassword: false, text: $bio)
+                    EditProfileRowView(imageName: "person.text.rectangle.fill", placeholder: "Biography", isPassword: false, text: $bio)
 //                    EditProfileRowView(imageName: "mappin.and.ellipse", placeholder: "Location", isPassword: false, text: $profileViewModel.cityName)
 
                     MapRowView(icon: "mappin.and.ellipse", title: "Location", value: $profileViewModel.cityName) {
