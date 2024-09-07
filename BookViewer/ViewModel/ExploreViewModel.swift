@@ -18,7 +18,9 @@ class ExploreViewModel: ObservableObject {
     private var bookCopies = [Book]()
     
     init() {
-        Task { try await fetchBooks() }
+        Task {
+            print("Fetch books")
+            try await fetchBooks() }
     }
     
     @MainActor
@@ -39,8 +41,8 @@ class ExploreViewModel: ObservableObject {
     @MainActor
     func updateBooks() {
         let filteredBooks = bookCopies.filter { book in
-            let matchesCountry = selectedCountry.isEmpty || book.country.lowercased() == selectedCountry.lowercased()
-            let matchesLanguage = selectedLanguage.isEmpty || book.language.lowercased() == selectedLanguage.lowercased()
+            let matchesCountry = selectedCountry.isEmpty || selectedCountry.lowercased() == "all" || book.country.lowercased() == selectedCountry.lowercased()
+            let matchesLanguage = selectedLanguage.isEmpty || selectedLanguage.lowercased() == "all" || book.language.lowercased() == selectedLanguage.lowercased()
             let matchesTitle = searchText.isEmpty || book.title.lowercased().contains(searchText.lowercased())
             
             return matchesCountry && matchesLanguage && matchesTitle
@@ -48,5 +50,6 @@ class ExploreViewModel: ObservableObject {
 
         self.books = filteredBooks.isEmpty ? bookCopies : filteredBooks
     }
+
 }
 

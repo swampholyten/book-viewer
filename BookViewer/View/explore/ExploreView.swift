@@ -28,16 +28,19 @@ struct ExploreView: View {
                         }
                     
                     LazyVStack(spacing: 32) {
-                        ForEach(viewModel.books) { book in
-                            NavigationLink(value: book) {
-                                BookItemView(book: book)
-                                    .frame(height: 400)
-                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                        if viewModel.books.isEmpty {
+                            Text("No books available")
+                        } else {
+                            ForEach(viewModel.books) { book in
+                                NavigationLink(value: book) {
+                                    BookItemView(book: book)
+                                        .frame(height: 400)
+                                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                                }
                             }
                         }
                     }
                 }
-
                 .navigationBarBackButtonHidden()
                 .navigationDestination(for: Book.self) { book in
                     BookDetailView(viewModel: viewModel, book: book)
@@ -45,8 +48,4 @@ struct ExploreView: View {
             }
         }
     }
-}
-
-#Preview {
-    ExploreView()
 }

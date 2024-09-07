@@ -16,8 +16,65 @@ struct FilterSearchView: View {
     @State private var expandedOption: FilterOptions = .search
 
     
-    let countries = ["All", "Germany", "Italy"]
-    let languages = ["All", "English", "Spanish"]
+    let countries = [
+        "All",
+        "Nigeria",
+        "Denmark",
+        "Italy",
+        "Japan",
+        "Iceland",
+        "Sweden",
+        "China",
+        "Egypt",
+        "Sumer and Akkadian Empire",
+        "Achaemenid Empire",
+        "United Kingdom",
+        "France",
+        "Republic of Ireland",
+        "Argentina",
+        "Romania",
+        "Spain",
+        "England",
+        "Russia",
+        "Germany",
+        "United States",
+        "Greece",
+        "Norway",
+        "Irish Free State",
+        "Czechoslovakia",
+        "Austria",
+        "Russia",
+        "Roman Empire",
+        "Portugal",
+        "Mexico",
+        "Sultanate of Rum",
+        "Algeria",
+        "India",
+        "Persia, Persian Empire",
+        "Sudan",
+        "Belgium"
+    ]
+    
+    let languages = [
+        "All",
+        "English",
+        "Danish",
+        "Italian",
+        "Akkadian",
+        "Hebrew",
+        "Arabic",
+        "French",
+        "German",
+        "Spanish",
+        "Russian",
+        "Greek",
+        "Norwegian",
+        "Icelandic",
+        "Swedish",
+        "Chinese",
+        "Classical Latin",
+        "Persian"
+    ]
     
     enum FilterOptions {
         case country, language, search, none
